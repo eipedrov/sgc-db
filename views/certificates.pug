@@ -1,0 +1,20 @@
+extends layout
+
+block head
+
+block content
+  main(class="container d-flex align-items-center justify-content-center")
+    table.table.table-striped.w-75
+      thead
+        tr
+          th.col Nome do Curso
+          th.col Código
+      tbody
+        if certificates.length === 0
+          tr
+            td(class="col text-center" colspan="3") Nenhum certificado encontrado
+        else
+          each certificate in certificates
+            tr(class="align-middle")
+              td #{certificate.Course.name}
+              td #{certificate.code}
